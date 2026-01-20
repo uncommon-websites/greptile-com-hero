@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greptile Hero Recreation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'greptile-green': '#0F6D38',
+                        'greptile-bg': '#E6E5E3',
+                        'greptile-dark': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'dot-pattern': 'radial-gradient(#B0B0B0 1px, transparent 1px)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #E6E5E3;
+            background-image: radial-gradient(#c0c0c0 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+        /* Custom class to hide scrollbar if needed, though not strictly required */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Simulating the engraved image style */
+        .engraved-effect {
+            filter: grayscale(100%) contrast(120%);
+            mix-blend-mode: multiply;
+        }
+    </style>
+</head>
+<body class="text-greptile-dark antialiased min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- Navigation -->
+    <header class="w-full border-b border-gray-300 bg-[#E6E5E3]/90 backdrop-blur-sm sticky top-0 z-50">
+        <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <svg class="w-6 h-6 text-greptile-green fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/>
+                </svg>
+                <span class="font-sans font-bold text-xl text-greptile-green tracking-tight">greptile</span>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-mono text-sm text-gray-800">
+                <a href="#" class="flex items-center gap-2 hover:text-greptile-green transition-colors">
+                    <span>$</span> Pricing
+                </a>
+                <div class="group relative flex items-center gap-2 cursor-pointer hover:text-greptile-green transition-colors">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    Features
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <a href="#" class="flex items-center gap-2 hover:text-greptile-green transition-colors">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    Enterprise
+                </a>
+                <div class="group relative flex items-center gap-2 cursor-pointer hover:text-greptile-green transition-colors">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    Resources
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <a href="#" class="flex items-center gap-2 hover:text-greptile-green transition-colors">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    Blog
+                </a>
+            </nav>
+
+            <!-- Auth Buttons -->
+            <div class="flex items-center gap-3 font-mono text-sm">
+                <a href="#" class="bg-[#0a1f12] text-white px-5 py-2 hover:bg-gray-800 transition-colors">
+                    Sign In
+                </a>
+                <a href="#" class="bg-greptile-green text-white px-5 py-2 hover:bg-green-800 transition-colors">
+                    Start Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="flex-grow relative w-full max-w-[1400px] mx-auto px-6 pt-20 pb-0">
+        
+        <!-- Hero Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
+            
+            <!-- Left Column: Text -->
+            <div class="flex flex-col justify-start pt-10">
+                <div class="relative">
+                    <h1 class="text-[5rem] sm:text-[6rem] leading-[0.9] font-bold text-greptile-green tracking-tighter mb-4 font-sans">
+                        The AI Code<br>Reviewer
+                    </h1>
+                    <!-- Fly Illustration (Placeholder) -->
+                    <img src="https://placehold.co/60x60/transparent/333?text=Fly" alt="Fly" class="absolute top-12 right-10 w-12 h-12 opacity-50 mix-blend-multiply rotate-12 hidden sm:block">
+                </div>
+
+                <div class="mt-32 max-w-lg">
+                    <p class="font-mono text-greptile-green text-lg leading-relaxed mb-8 uppercase">
+                        AI agents that catch bugs<br>
+                        in your pull requests with<br>
+                        full context of your codebase
+                    </p>
+
+                    <a href="#" class="inline-flex items-center bg-greptile-green text-white font-mono px-8 py-3 text-sm hover:bg-green-800 transition-colors group">
+                        Try For Free 
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+
+                    <p class="font-mono text-xs text-gray-600 mt-3">
+                        no credit card required • 14-day free trial
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Lizard Image -->
+            <!-- Using absolute positioning on larger screens to match the overlap effect -->
+            <div class="relative h-[500px] lg:h-auto lg:absolute lg:bottom-0 lg:right-0 lg:w-[55%] lg:top-20 pointer-events-none flex items-end justify-end overflow-hidden">
+                <!-- Placeholder for the engraved lizard -->
+                <!-- Using a grayscale placeholder to mimic the engraved look -->
+                <img src="https://placehold.co/800x800/888888/333333?text=Engraved+Lizard+Illustration" 
+                     alt="Engraved Lizard" 
+                     class="w-full h-auto object-contain object-bottom mix-blend-multiply opacity-80 filter grayscale contrast-125 translate-y-10 translate-x-10 scale-110">
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Social Proof / Footer Section -->
+    <section class="w-full border-t border-gray-300 bg-[#E6E5E3] relative z-20 mt-12">
+        <!-- Header Text -->
+        <div class="border-b border-gray-300 py-4 text-center">
+            <p class="font-mono text-xs sm:text-sm text-black tracking-wide uppercase">
+                1000+ software teams use greptile to ship faster. <a href="#" class="text-greptile-green hover:underline ml-1">See why teams <span class="text-greptile-green">♥</span> greptile →</a>
+            </p>
+        </div>
+
+        <!-- Logos Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-5 divide-x divide-y divide-gray-300 border-b border-gray-300">
+            <!-- Row 1 -->
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=Brex" alt="Brex">
+            </div>
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=substack" alt="Substack">
+            </div>
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=scale" alt="Scale">
+            </div>
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=klaviyo" alt="Klaviyo">
+            </div>
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=PostHog" alt="PostHog">
+            </div>
+
+            <!-- Row 2 -->
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=Mintlify" alt="Mintlify">
+            </div>
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=Browserbase" alt="Browserbase">
+            </div>
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=BILT" alt="Bilt">
+            </div>
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=crossmint" alt="Crossmint">
+            </div>
+            <div class="h-20 flex items-center justify-center p-4 grayscale opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://placehold.co/120x40/transparent/333?text=Pylon" alt="Pylon">
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
